@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SCM.Dashboard.Views.AboutPage"
+             xmlns:vm="clr-namespace:SCM.Dashboard.ViewModels"
+			 xmlns:gauge="clr-namespace:Syncfusion.SfGauge.XForms;assembly=Syncfusion.SfGauge.XForms"
+             Title="SCM Dashboard">
+
+	<ContentPage.BindingContext>
+		<vm:AboutViewModel />
+	</ContentPage.BindingContext>
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<!--Page Level Resources: Compatibile with Xamarin Live Player -->
+			<Color x:Key="Primary">#2196F3</Color>
+			<Color x:Key="Accent">#96d1ff</Color>
+			<Color x:Key="LightTextColor">#999999</Color>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	<ScrollView>
+		<StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" Orientation="Horizontal">
+			<StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" Orientation="Vertical">
+				<gauge:SfCircularGauge VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="10" >
+
+					<gauge:SfCircularGauge.Headers>
+						<gauge:Header Text="Speed" ForegroundColor="Black" TextSize="20" />
+					</gauge:SfCircularGauge.Headers>
+
+					<gauge:SfCircularGauge.Scales>
+
+						<gauge:Scale>
+
+							<gauge:Scale.Ranges>
+								<gauge:Range StartValue="40" EndValue="70" />
+							</gauge:Scale.Ranges>
+
+							<gauge:Scale.Pointers>
+								<gauge:NeedlePointer  Value="{Binding Speed}" />
+								<gauge:RangePointer  Value="80" />
+								<gauge:MarkerPointer Value="50" />
+							</gauge:Scale.Pointers>
+
+						</gauge:Scale>
+
+					</gauge:SfCircularGauge.Scales>
+
+				</gauge:SfCircularGauge>
+				<gauge:SfCircularGauge VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="10">
+
+					<gauge:SfCircularGauge.Headers>
+						<gauge:Header Text="RPM x 100" ForegroundColor="Black" TextSize="20" />
+					</gauge:SfCircularGauge.Headers>
+
+					<gauge:SfCircularGauge.Scales>
+
+						<gauge:Scale>
+
+							<gauge:Scale.Ranges>
+								<gauge:Range StartValue="0" EndValue="30"/>
+							</gauge:Scale.Ranges>
+
+							<gauge:Scale.Pointers>
+								<gauge:NeedlePointer  Value="{Binding Rpm}" />
+								<gauge:RangePointer  Value="80" />
+								<gauge:MarkerPointer Value="50" />
+							</gauge:Scale.Pointers>
+
+						</gauge:Scale>
+
+					</gauge:SfCircularGauge.Scales>
+
+				</gauge:SfCircularGauge>
+
+			</StackLayout>
+			<StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="Fill" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+				<gauge:SfLinearGauge Orientation="OrientationVertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="10">
+					<gauge:SfLinearGauge.Header>
+						<gauge:LinearHeader Text="Fuel Level" TextSize="20" Offset="0,0"/>
+					</gauge:SfLinearGauge.Header>
+
+					<gauge:SfLinearGauge.Scales>
+						<gauge:LinearScale ScaleBarColor="#e0e9f9" LabelColor="#424242" ScaleBarSize = "40" LabelFontSize ="14" MinorTicksPerInterval ="0">
+							<gauge:LinearScale.MajorTickSettings>
+								<gauge:LinearTickSettings Thickness="1" Color ="#9E9E9E" Length = "10"/>
+							</gauge:LinearScale.MajorTickSettings>
+							<gauge:LinearScale.Pointers>
+								<gauge:BarPointer  Value="{Binding FuelLevel}" EnableAnimation = "false" Color = "#36d1dc" Thickness = "20"/>
+							</gauge:LinearScale.Pointers>
+						</gauge:LinearScale>
+					</gauge:SfLinearGauge.Scales>
+				</gauge:SfLinearGauge>
+			</StackLayout>
+		</StackLayout>
+	</ScrollView>
+</ContentPage>

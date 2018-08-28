@@ -1,0 +1,15 @@
+
+{
+    "region" : "us-east-1",
+    "profile" : "admin_vs",
+    "configuration" : "Release",
+    "framework"     : "netcoreapp1.0",
+    "function-name" : "spaceGeekFunctionEndPoint",
+    "function-handler" : "SpaceGeek::SpaceGeek.Function::FunctionHandler",
+    "function-memory-size" : 256,
+    "function-role"        : "arn:aws:iam::639730848144:role/lambda_exec_spaceGeekFunctionEndPoint-0",
+    "function-timeout"     : 10,
+    "function-runtime"     : "dotnetcore1.0",
+    "tracing-mode"         : "PassThrough",
+    "environment-variables" : ""
+}
